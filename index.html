@@ -45,7 +45,7 @@
 <body>
    <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
    </div>
-   <p>Just text</p> <!--Просто текст для проверки-->
+   <p id="test_lel">Just text</p> <!--Просто текст для проверки-->
    <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
    <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
    <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
@@ -64,6 +64,9 @@
    tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
    let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать
+
+   let text_data = document.getElementById("test_lel");
+   text_data.text = tg.initDataUnsafe.start_param;
 
    btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
       if (tg.MainButton.isVisible){ //если кнопка показана
@@ -105,10 +108,5 @@
    userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
    usercard.appendChild(userid); //добавляем
 
-
-   //работает только в attachment menu
-   // let pic = document.createElement('img'); //создаем img
-   // pic.src = tg.initDataUnsafe.user.photo_url; //задаём src
-   // usercard.appendChild(pic); //добавляем элемент в карточку
 </script>
 </html>
